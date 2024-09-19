@@ -10,7 +10,7 @@ async function get<T>(incomingReq: Request, endpoint: string, cb: (response: Res
 
   if (!response.ok) {
     // TODO make this better...
-    throw new Error('Fetch failed')
+    console.error('Fetch failed')
   }
   return cb(response)
 }

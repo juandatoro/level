@@ -1,0 +1,41 @@
+---
+import Typography from '@src/components/Typography.astro'
+
+type PhotoElement = {
+  id: string
+  title: string
+  src: string
+  slug: string
+}
+
+type Props = {
+  photoElements: PhotoElement[]
+  gridTitle?: string
+}
+
+const { photoElements, gridTitle } = Astro.props
+---
+
+<section class='py-8'>
+  <Typography as='h4' variant='h4' class={'mb-6'}>{gridTitle}</Typography>
+  <div class={`${gridTitle ? 'grid' : 'hidden'} grid-cols-1 gap-y-9 gap-x-4 md:grid md:grid-cols-3`}>
+    {
+      photoElements.map((photoElement, index: number) => (
+        <div class='aspect-w-4 aspect-h-3 relative'>
+          <a href={`/project/${photoElement.id}`}>
+            <img
+              src={photoElement.src}
+              alt={`proyect-${photoElement.slug}`}
+              class='object-fit mb-4 h-full max-h-[280px] w-full'
+            />
+          </a>
+          <span class='absolute bottom-[-48px]  left-0  w-full'>
+            <Typography as='h5' variant='body' class={'mb-6 mt-6 text-center  text-black'}>
+              {photoElement.title}
+            </Typography>
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</section>

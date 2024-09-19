@@ -6,6 +6,7 @@ import DescriptionSection from '@src/sections/DescriptionSection.astro'
 import Table from '@src/components/Table/Table.astro'
 import ExplanationSection from '@src/sections/ExplanationSection.astro'
 import { PhotoGallery } from '@src/components/PhotoGallery/PhotoGallery'
+import type { DocumentData } from 'firebase/firestore'
 
 const { slug } = Astro.params
 
@@ -15,12 +16,17 @@ const { heading, featured, project_description, project_explanation, gallery } =
   slug as string
 )
 
-console.log(gallery)
+const photos = gallery.map((photo: any) => ({
+  src: photo,
+  width: 998,
+  height: 562,
+  title: photo,
+}))
 ---
 
 <Layout title={heading.title} heading={heading}>
   <DescriptionSection id='carrusel' description={featured.description} gallery={featured.gallery_featured} />
   <Table data={[project_description]} />
   <ExplanationSection description={project_explanation.description} gallery={project_explanation.gallery} />
-  <PhotoGallery client:only photos={gallery} columns={2} isLightbox={true} />
+  <PhotoGallery client:only photos={photos} columns={2} isLightbox={true} />
 </Layout>

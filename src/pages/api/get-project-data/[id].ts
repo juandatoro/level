@@ -4,7 +4,6 @@ import { log } from 'console'
 
 export const GET: APIRoute = async ({ params }) => {
   const documentId = params.id
-  console.log(documentId)
 
   if (!documentId) {
     return new Response(JSON.stringify({ error: 'id not found' }), {

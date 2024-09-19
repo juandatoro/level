@@ -3,23 +3,45 @@ import Typography from '@src/components/Typography.astro'
 import { getAllProjectsService } from '@src/infrastructure/services/pageService'
 import type { DocumentData } from 'firebase/firestore'
 
+type Elements = {}
+
 type Props = {
   title: string
   lengthGalerry?: number
   imageTitles?: string[]
 }
 
-const { title, lengthGalerry = 6, imageTitles } = Astro.props
+const { title, lengthGalerry, imageTitles } = Astro.props
 
 const AllProjects = (await getAllProjectsService()) as DocumentData[]
-console.log(AllProjects)
 
-const randomProjects = AllProjects?.slice(0, lengthGalerry)?.map((project: any) => {
-  return {
-    id: project?.id,
-    src: project?.gallery?.[0],
+function pickUniqueProjects(arr: DocumentData, count?: number) {
+  const result = []
+  const tempArray = [...(arr as any)] // Create a copy of the array
+
+  if (count === undefined) {
+    return arr.map((project: any) => {
+      return {
+        id: project?.id,
+        src: project?.gallery?.[0],
+      }
+    })
+  } else {
+    for (let i = 0; i < count; i++) {
+      const randomIndex = Math.floor(Math.random() * tempArray.length)
+      result.push(tempArray.splice(randomIndex, 1)[0]) // Remove and return the random element
+    }
+
+    return result.map((project: any) => {
+      return {
+        id: project?.id,
+        src: project?.gallery?.[0],
+      }
+    })
   }
-})
+}
+
+const randomProjects = pickUniqueProjects(AllProjects, lengthGalerry)
 ---
 
 <section class='py-8'>
@@ -36,7 +58,7 @@ const randomProjects = AllProjects?.slice(0, lengthGalerry)?.map((project: any) 
             </span>
           )}
           <a href={`/project/${id}`}>
-            <img src={src} alt={`proyect-${index}`} class='h-full w-full object-cover' />
+            <img src={src} alt={`proyect-${index}`} class='object-fit h-full max-h-[280px] w-full' />
           </a>
         </div>
       ))

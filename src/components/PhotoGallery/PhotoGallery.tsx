@@ -38,6 +38,7 @@ export const PhotoGallery = ({ photos, columns = 3, isLightbox = false }: PhotoG
 
   return (
     <div>
+      <h1>.</h1>
       <PhotoAlbum
         layout='columns'
         columns={columns}

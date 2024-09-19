@@ -13,5 +13,5 @@ const { heading, banner, featured } = await getDataFromService(Astro.request, Pa
   <CarruselSection id='carrusel' description={featured.description} gallery={featured.gallery} />
   <br />
   <BannerSection id='banner' description={banner.description} gallery={banner.gallery} />
-  <HighlightedProjects title='Highlighted Projects' />
+  <HighlightedProjects title='Highlighted Projects' lengthGalerry={6} />
 </Layout>
