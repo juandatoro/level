@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { Pages } from '@src/infrastructure/domain/pagesEnums'
+import { getDataFromService } from '@src/infrastructure/http/fetchHelper'
+import BannerSection from '@src/sections/BannerSection.astro'
+import CarruselSection from '@src/sections/DescriptionSection.astro'
+import HighlightedProjects from '@src/sections/HighlightedProjects.astro'
+
+const { heading, banner, featured } = await getDataFromService(Astro.request, Pages.Home)
+---
+
+<Layout title='Home - Level Group' heading={heading}>
+  <CarruselSection id='carrusel' description={featured.description} gallery={featured.gallery} />
+  <br />
+  <BannerSection id='banner' description={banner.description} gallery={banner.gallery} />
+  <HighlightedProjects title='Highlighted Projects' />
+</Layout>

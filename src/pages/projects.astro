@@ -1,0 +1,15 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { Pages } from '@src/infrastructure/domain/pagesEnums'
+import { PhotoGallery, getPhotosFromProjects } from '@src/components'
+import { getDataFromService } from '@src/infrastructure/http/fetchHelper'
+
+const projects = await getDataFromService(Astro.request, Pages.PROJECTS)
+const { heading } = projects
+const photos = getPhotosFromProjects(projects)
+---
+
+<Layout title='Projects - Level Group' heading={heading}>
+  <h1 class='text-2xl'>Projects</h1>
+  <PhotoGallery client:only photos={photos} columns={2} />
+</Layout>

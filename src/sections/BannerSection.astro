@@ -1,0 +1,42 @@
+---
+import { Picture } from 'astro:assets'
+import MarkdownComponent from '@src/components/MarkdownComponent'
+import Typography from '@src/components/Typography.astro'
+import ArrowLeft from '@src/icons/arrowLeft.astro'
+
+const { description, gallery } = Astro.props
+
+const imgage = gallery[0]
+---
+
+<section
+  id='banner'
+  class='flex flex-col items-center space-y-4 text-center md:flex-row md:items-stretch md:space-x-4 md:space-y-0'
+>
+  {
+    imgage && (
+      <Picture
+        src={imgage}
+        formats={['avif', 'webp']}
+        alt='Banner Image'
+        class='w-full rounded-sm shadow-md '
+        decoding='async'
+        loading='lazy'
+        width={1920}
+        height={1080}
+      />
+    )
+  }
+
+  <div class='flex flex-col items-center justify-center space-y-4 md:w-1/2 md:items-start md:pl-6 md:text-left'>
+    <div class='flex flex-grow items-center justify-center md:justify-start'>
+      <Typography as='h3' variant='text'>
+        <MarkdownComponent description={description} />
+      </Typography>
+    </div>
+    <a href='/about' class='inline-flex md:self-start text-secondary dark:text-white hover:text-primary md:mt-auto items-center'>
+      <ArrowLeft class='mr-2  h-6 w-6' />
+      <Typography as='p' variant='h4' class:list={''}> About us</Typography>
+    </a>
+  </div>
+</section>

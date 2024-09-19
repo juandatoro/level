@@ -1,0 +1,101 @@
+{
+  "heading": {
+    "gallery": [
+      "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/r8v6v_151-MSPH2424%201.png?alt=media&token=5f7379a1-54fc-4a7b-bcb1-949c0539cd22"
+    ],
+    "title": "Stories from design"
+  },
+  "featured": { "description": null, "gallery": [] },
+  "banner": {
+    "description": null,
+    "gallery": [],
+    "level_projects": [
+      {
+        "gallery": [
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/f4lfs_MAQUETA%201E%20(3)%201.png?alt=media&token=667ed6e9-dffa-4819-9111-4a37d8281020",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/3zyei_CABAN%CC%83A%203%201.png?alt=media&token=a1917f64-9071-46bf-9a27-4a4335a0d79d",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/f8q7u_CABAN%CC%83AS%202-2%201.png?alt=media&token=0c097279-6bde-415b-94fd-80ac08b88deb",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/pj49k_CABAN%CC%83A%206%201.png?alt=media&token=963ac821-798d-4855-a44f-471e8e134080",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/7g8w5_CABAN%CC%83A%205%201.png?alt=media&token=707bde01-6a6d-44f3-82aa-333f7a9d19a0",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/7hdej_FACHADAS%202%201.png?alt=media&token=6b217b39-74ef-4018-9b5f-6d9a708b73d7",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/nv6pk_HABITACION%202-2%201.png?alt=media&token=edf0b4b8-104e-411b-b129-8350799092d3",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/ee3iu_MAQUETA%201E%20(3)%201.png?alt=media&token=f9ded070-e3ce-4ba9-ac95-999fe76b6a3c",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/age7s_PLANTA%201.png?alt=media&token=89344310-af78-4278-97d3-d306882ce97f",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/9v0us_R3STAURANTE%203%201.png?alt=media&token=0826950c-688f-482f-a2f9-9653316c93d0",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/iwtvk_RECEPCION%202%201.png?alt=media&token=6f7f6a38-3235-4157-a3cd-f49282f30f6e",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/ta2r2_RECEPCION%203%201.png?alt=media&token=a8f8cb03-f733-41ee-adce-7c7ec746437e",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/g0q5o_RESTAURANTE%201%201.png?alt=media&token=a35deeb7-e865-49bb-b3b2-b0488feacf0d",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/vx68j_RESTAURANTE%202%201.png?alt=media&token=de941d89-b221-41e4-ac72-d2de3507adff",
+          "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/j8cwg_ZONA%20SOCIAL%202%201.png?alt=media&token=a4ec758d-5da4-494e-8192-9baafa4214ad"
+        ],
+        "site": "Antioquia, Colombia.",
+        "projects": [
+          {
+            "converter": null,
+            "_key": {
+              "path": {
+                "segments": [
+                  "projects",
+                  "level-group-tatrb",
+                  "databases",
+                  "(default)",
+                  "documents",
+                  "pages",
+                  "bGu2txcArVnTHvCIR3He"
+                ],
+                "offset": 5,
+                "len": 2
+              }
+            },
+            "type": "document",
+            "firestore": {
+              "app": {
+                "_isDeleted": false,
+                "_options": {
+                  "apiKey": "AIzaSyBF0_Khu9xueCsw23VhZmHokg87DBTY8cc",
+                  "authDomain": "level-group-tatrb.firebaseapp.com",
+                  "projectId": "level-group-tatrb",
+                  "storageBucket": "level-group-tatrb.appspot.com",
+                  "messagingSenderId": "638054787093",
+                  "appId": "1:638054787093:web:1c8dfc3217974a79dd061c"
+                },
+                "_config": { "name": "[DEFAULT]", "automaticDataCollectionEnabled": false },
+                "_name": "[DEFAULT]",
+                "_automaticDataCollectionEnabled": false,
+                "_container": { "name": "[DEFAULT]", "providers": {} }
+              },
+              "databaseId": { "projectId": "level-group-tatrb", "database": "(default)" },
+              "settings": {
+                "host": "firestore.googleapis.com",
+                "ssl": true,
+                "ignoreUndefinedProperties": false,
+                "cacheSizeBytes": 41943040,
+                "experimentalForceLongPolling": false,
+                "experimentalAutoDetectLongPolling": true,
+                "experimentalLongPollingOptions": {},
+                "useFetchStreams": true
+              }
+            }
+          }
+        ],
+        "project_name": "Rk Hotel",
+        "project_description": { "year": "2022", "project_type": "Hospitality", "site": "Antioquia, Colombia." },
+        "featured": {
+          "description": "The Hotel Rk in Guatapé is an exceptional destination where the architecture merges with the impressive landscape surrounding the majestic Piedra del Peñol and the serene dam. With its elegant metal structure, the hotel offers dreamlike panoramas that are truly unique. ",
+          "gallery_featured": [
+            "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/37mo1_GENEREAL%202.png?alt=media&token=cd228b10-db55-4ad1-8d9c-e495c364831c"
+          ]
+        },
+        "project_type": "Hospitality",
+        "year": { "seconds": 1640926800, "nanoseconds": 0 },
+        "alternative_description": "Exclusivity and privacy are pillars of the Rk hotel experience. Each guest is immersed in the beauty of the natural surroundings with a touch of unparalleled luxury. This hotel stands as a singular refuge where the landscape comes alive through the architecture, providing a unique and unforgettable experience.",
+        "heading": {
+          "gallery": [
+            "https://firebasestorage.googleapis.com/v0/b/level-group-tatrb.appspot.com/o/ey5hv_RESTAURANTE%201%201.png?alt=media&token=47f6713a-167b-48cc-bf03-c26d1ec30949"
+          ],
+          "title": "Rk Hotel"
+        }
+      }
+    ]
+  }
+}

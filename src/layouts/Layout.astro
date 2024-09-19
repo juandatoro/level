@@ -1,0 +1,93 @@
+---
+import Footer from '@src/sections/Footer.astro'
+import Header from '@src/sections/Header.astro'
+// Supports weights 100-900
+import '@fontsource-variable/montserrat'
+
+const { title, heading } = Astro.props ?? {}
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Level Group' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link href='https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap' rel='stylesheet' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header title={heading.title} image={heading.gallery[0]} />
+    <main class='mx-auto flex max-w-[1280px] flex-wrap gap-6 p-4'>
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      :root {
+        --color-primary: #f0f0ff;
+        --color-secondary: #333;
+        --color-accent: #f0f0ff;
+        --color-accent-rgb: 213, 255, 0;
+        --background-color: #fafafa;
+      }
+
+      @font-face {
+        font-family: 'Montserrat Variable';
+        font-display: swap;
+        /* src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype"); */
+      }
+
+      html {
+        font-family: 'Montserrat Variable', sans-serif;
+        background: var(--background-color);
+        scrollbar-gutter: stable;
+        scroll-behavior: smooth;
+      }
+
+      main {
+        position: relative;
+      }
+      @supports selector(::-webkit-scrollbar) {
+        @media (prefers-reduced-motion: reduce) {
+          html {
+            scroll-behavior: auto;
+          }
+        }
+        @media (hover: hover) {
+          ::-webkit-scrollbar {
+            width: 10px;
+            border-radius: 10px;
+          }
+
+          ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: theme('colors.primary');
+            border: 2px solid transparent;
+            background-clip: content-box;
+          }
+
+          ::-webkit-scrollbar-thumb:active {
+            background-color: #666;
+          }
+
+          ::-webkit-scrollbar-track {
+            background: var(--background-image);
+          }
+
+          ::-webkit-scrollbar-corner {
+            background: var(--background-image);
+          }
+        }
+      }
+
+      @supports not selector(::-webkit-scrollbar) {
+        * {
+          scrollbar-color: theme('colors.primary') transparent;
+          scrollbar-width: thin;
+        }
+      }
+    </style>
+  </body>
+</html>
