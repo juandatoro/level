@@ -55,7 +55,7 @@ export const Navbar = ({ navigation, breadcrumbDefinition, baseUrl = '/' }: Navb
               {routes.map((route) => {
                 const { href, title } = route
                 return (
-                  <li>
+                  <li key={href}>
                     <a
                       href={href}
                       className='flex items-center gap-1 text-2xl uppercase text-white transition-all hover:text-neutral-100'

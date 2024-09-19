@@ -45,10 +45,8 @@ type DocumentWithID = { id: string } & DocumentData
 
 const getDocumentsFromCollectionQuery = async (col: string, field: string, operator: any, value: any) => {
   const collectionRef = query(collection(db, col), where(field, operator, value))
-  console.log(collectionRef)
 
   const snapshot = await getDocs(collectionRef)
-  console.log(snapshot.docs)
 
   const documents = snapshot.docs.map((doc) => {
     return {

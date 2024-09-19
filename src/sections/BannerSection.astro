@@ -34,9 +34,12 @@ const imgage = gallery[0]
         <MarkdownComponent description={description} />
       </Typography>
     </div>
-    <a href='/about' class='inline-flex md:self-start text-secondary dark:text-white hover:text-primary md:mt-auto items-center'>
-      <ArrowLeft class='mr-2  h-6 w-6' />
-      <Typography as='p' variant='h4' class:list={''}> About us</Typography>
+    <a
+      href='/about'
+      class='inline-flex items-center text-secondary hover:text-primary md:mt-auto md:self-start dark:text-white'
+    >
+      <ArrowLeft class='mr-2 h-6 w-6 text-black' />
+      <Typography as='p' variant='h4' color='black'>About us</Typography>
     </a>
   </div>
 </section>

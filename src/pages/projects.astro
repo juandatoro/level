@@ -3,13 +3,24 @@ import Layout from '@layouts/Layout.astro'
 import { Pages } from '@src/infrastructure/domain/pagesEnums'
 import { PhotoGallery, getPhotosFromProjects } from '@src/components'
 import { getDataFromService } from '@src/infrastructure/http/fetchHelper'
+import { getAllProjectsService } from '@src/infrastructure/services/pageService'
+import HighlightedProjects from '@src/sections/HighlightedProjects.astro'
+import type { DocumentData } from 'firebase/firestore'
+import PhotoGrid from '@src/sections/PhotoGrid.astro'
 
 const projects = await getDataFromService(Astro.request, Pages.PROJECTS)
 const { heading } = projects
-const photos = getPhotosFromProjects(projects)
+
+const allProjects = (await getAllProjectsService()) as DocumentData[]
+
+const photoElements = allProjects.map((project) => ({
+  id: project.id,
+  title: project.heading.title,
+  src: project.heading.gallery[0],
+  slug: project.slug,
+}))
 ---
 
 <Layout title='Projects - Level Group' heading={heading}>
-  <h1 class='text-2xl'>Projects</h1>
-  <PhotoGallery client:only photos={photos} columns={2} />
+  <PhotoGrid photoElements={photoElements} gridTitle='All Projects' />
 </Layout>

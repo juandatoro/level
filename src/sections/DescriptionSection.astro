@@ -7,12 +7,10 @@ const { description, gallery } = Astro.props
 const imgage = gallery[0]
 ---
 
-<section
-  id='carrusel'
-class='flex flex-col items-center justify-center gap-8 py-8 text-center'>
-  <div class='w-full md:w-2/3 '>
+<section id='carrusel' class='flex flex-col items-center justify-center gap-8 py-8 text-center'>
+  <div class='w-full md:w-2/3'>
     <Typography as='h3' variant='text'>
-       <MarkdownComponent description={description} />
+      <MarkdownComponent description={description} />
     </Typography>
   </div>
   {
