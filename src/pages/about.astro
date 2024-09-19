@@ -1,4 +1,6 @@
 ---
+// export const prerender = false
+
 import Layout from '@layouts/Layout.astro'
 import MarkdownComponent from '@src/components/MarkdownComponent'
 import Typography from '@src/components/Typography.astro'
@@ -24,5 +26,9 @@ const { heading, featured, banner } = await getDataFromService(Astro.request, Pa
     width={1920}
     height={1080}
   />
-  <HighlightedProjects title="What we do" lengthGalerry={3} imageTitles={['Architecture', 'Interior Design', 'Urban Design']}/>
+  <HighlightedProjects
+    title='What we do'
+    lengthGalerry={3}
+    imageTitles={['Architecture', 'Interior Design', 'Urban Design']}
+  />
 </Layout>
