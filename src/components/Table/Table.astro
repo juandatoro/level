@@ -1,0 +1,22 @@
+---
+import { organizeObject } from "@src/infrastructure/util/util"
+import BodyTable from "./BodyTable.astro"
+import HeaderTable from "./HeaderTable.astro"
+
+type Props = {
+    data: Record<string, unknown>[]
+}
+
+
+const { data } = Astro.props
+
+
+const organizeData = organizeObject(data)
+
+---
+    <table class='table-auto w-full min-w-full bg-transparent' >
+      <HeaderTable titles={Object.keys(data[0])} />
+      <BodyTable body={organizeData} />
+    </table>
+
+

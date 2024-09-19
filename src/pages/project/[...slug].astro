@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { getDataBYIdFromService } from '@src/infrastructure/http/fetchHelper'
+import { Project } from '@src/infrastructure/domain/ProjectEnums'
+import DescriptionSection from '@src/sections/DescriptionSection.astro'
+import Table from '@src/components/Table/Table.astro'
+import ExplanationSection from '@src/sections/ExplanationSection.astro'
+import { PhotoGallery } from '@src/components/PhotoGallery/PhotoGallery'
+
+const { slug } = Astro.params
+
+const { heading, featured, project_description, project_explanation, gallery } = await getDataBYIdFromService(
+  Astro.request,
+  Project.PROJECT,
+  slug as string
+)
+
+console.log(gallery)
+---
+
+<Layout title={heading.title} heading={heading}>
+  <DescriptionSection id='carrusel' description={featured.description} gallery={featured.gallery_featured} />
+  <Table data={[project_description]} />
+  <ExplanationSection description={project_explanation.description} gallery={project_explanation.gallery} />
+  <PhotoGallery client:only photos={gallery} columns={2} isLightbox={true} />
+</Layout>

@@ -1,0 +1,75 @@
+---
+import Typography from '@src/components/Typography.astro'
+import InstagramIcon from '@src/icons/instagram.astro'
+import LinkedinIcon from '@src/icons/linkedin.astro'
+
+const text = {
+  es: {
+    label: 'redes sociales y botón para alternar tema',
+    instagramButtons: {
+      instagram: 'Instagram',
+      url: 'https://www.instagram.com/levelgroup.design/?hl=es',
+      label: 'Instagram de level group, se abrirá en una nueva pestaña',
+    },
+    linkedinButtons: {
+      linkedin: 'Linkedin',
+      url: 'https://www.linkedin.com/company/level-group',
+      label: 'Linkedin de level group, se abrirá en una nueva pestaña',
+    },
+    webButtons: {
+      web: 'Web',
+      url: 'https://www.levelgroup.design',
+      label: 'Web de level group, se abrirá en una nueva pestaña',
+    },
+  },
+}
+---
+
+<footer class='flex flex-col justify-between gap-10 bg-neutral-900 px-6 py-10 md:flex-row md:bg-transparent md:px-16'>
+  <nav class='order-last flex flex-col justify-center gap-6 md:order-first'>
+    <div class='flex gap-4'>
+      <a
+        target='_blank'
+        rel='noopener'
+        aria-label={text.es.instagramButtons.label}
+        href={text.es.instagramButtons.url}
+        class='inline-block text-white transition hover:scale-105 hover:text-secondary hover:opacity-70 md:text-black'
+      >
+        <InstagramIcon class='transition-colors duration-300 hover:text-accent md:text-primary' />
+      </a>
+      <a
+        target='_blank'
+        rel='noopener'
+        aria-label={text.es.linkedinButtons.label}
+        href={text.es.linkedinButtons.url}
+        class='inline-block text-white transition hover:scale-105 hover:text-secondary hover:opacity-70 md:text-black'
+      >
+        <LinkedinIcon class='transition-colors duration-300 hover:text-accent md:text-primary' />
+      </a>
+    </div>
+    <a
+      target='_blank'
+      rel='noopener'
+      aria-label={text.es.webButtons.label}
+      href={text.es.webButtons.url}
+      class='inline-block text-white transition hover:scale-105 hover:text-secondary hover:opacity-70 md:text-black'
+    >
+      @levelgroup.design
+    </a>
+  </nav>
+  <div class='flex flex-col gap-4 md:items-center'>
+    <h3 class='text-xl font-semibold text-white md:text-black'>CONTACT US</h3>
+    <p class='flex flex-col text-white md:items-center md:text-black'>
+      <span>+(57) 3176808248</span>
+      <span>juan.zuluaga@levelgroup.design</span>
+    </p>
+  </div>
+  <div class='flex flex-col gap-4 md:items-end'>
+    <h3 class='text-xl font-semibold text-white md:text-black'>FIND US</h3>
+    <p class='flex flex-col text-white md:items-end md:text-black'>
+      <span> km 5 Av. Las Palmas </span>
+      <span> Cortezza Empresarial 140/05 </span>
+      <span> Medellín, Colombia </span>
+    </p>
+  </div>
+</footer>

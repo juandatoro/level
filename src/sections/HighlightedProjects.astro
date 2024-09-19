@@ -1,0 +1,58 @@
+---
+import Typography from '@src/components/Typography.astro'
+import { getAllProjectsService } from '@src/infrastructure/services/pageService'
+import type { DocumentData } from 'firebase/firestore'
+
+type Props = {
+  title: string
+  lengthGalerry?: number
+  imageTitles?: string[]
+}
+
+const { title, lengthGalerry = 6, imageTitles } = Astro.props
+
+const AllProjects = (await getAllProjectsService()) as DocumentData[]
+console.log(AllProjects)
+
+const randomProjects = AllProjects?.slice(0, lengthGalerry)?.map((project: any) => {
+  return {
+    id: project?.id,
+    src: project?.gallery?.[0],
+  }
+})
+---
+
+<section class='py-8'>
+  <Typography as='h4' variant='h4' class={'mb-6'}>{title}</Typography>
+  <div class={`${imageTitles ? 'grid' : 'hidden'} grid-cols-1 gap-4 md:grid md:grid-cols-3`}>
+    {
+      randomProjects.map(({ src, id }: { src: string; id: string }, index: number) => (
+        <div class='aspect-w-4 aspect-h-3 relative'>
+          {imageTitles && (
+            <span class='absolute left-0 top-0 h-full w-full'>
+              <Typography as='h5' variant='body' class={'mb-6 mt-6 text-center  text-white'}>
+                {imageTitles[index]}
+              </Typography>
+            </span>
+          )}
+          <a href={`/project/${id}`}>
+            <img src={src} alt={`proyect-${index}`} class='h-full w-full object-cover' />
+          </a>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- TODO: add gallery in mobile -->
+  {
+    !imageTitles && (
+      <div class='grid grid-cols-1 gap-4 md:hidden md:grid-cols-3'>
+        {randomProjects.slice(0, 1).map(({ src }: { src: string }, index: number) => (
+          <div class='aspect-w-4 aspect-h-3'>
+            <img src={src} alt={`proyect-${index}`} class='h-full w-full object-cover' />
+          </div>
+        ))}
+      </div>
+    )
+  }
+</section>

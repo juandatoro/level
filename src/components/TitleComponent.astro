@@ -1,0 +1,21 @@
+---
+import Typography from './Typography.astro'
+
+const { title } = Astro.props
+---
+
+<Typography as='h1' variant='bigger' color='white'>
+  {
+    title.split('/').map((part: string, index: number) => (
+      <>
+        {part}
+        {index < title.split('/').length - 1 && (
+          <>
+            <span class='hidden md:inline'> • </span>
+            <br aria-hidden='true' class='block md:hidden' />
+          </>
+        )}
+      </>
+    ))
+  }
+</Typography>

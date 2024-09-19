@@ -1,0 +1,74 @@
+---
+import Picture from 'astro/components/Picture.astro'
+import { Icons, Navbar } from '@components'
+import { routes } from '@src/routes'
+import { Squash as Hamburger } from 'hamburger-react'
+import TitleComponent from '@src/components/TitleComponent.astro'
+import DownArrow from '@src/components/DownArrow.astro'
+import LogoIcon from '@src/icons/logo.astro'
+
+const { title = 'Level Group', image } = Astro.props
+---
+
+<header class='relative h-screen w-full'>
+  <Picture
+    src={image}
+    formats={['avif', 'webp']}
+    alt='Header Image'
+    class='z-0 h-screen w-full object-cover'
+    decoding='async'
+    loading='lazy'
+    width={1920}
+    height={1080}
+  />
+  <div class='absolute inset-0 z-10 flex flex-col justify-between p-6'>
+    <!-- Navbar -->
+    <nav class='items-center justify-between md:px-16'>
+      <!-- Desktop Navigation -->
+      <ul class='hidden flex-1 items-center gap-5 text-sm md:flex'>
+        <li>
+          <a href='/' class='hover:text-neutral-1000 text-white'>
+            <LogoIcon class='' />
+          </a>
+        </li>
+        <div class='flex flex-1 justify-center gap-20'>
+          {
+            routes.map((route) => {
+              const { href, title } = route
+              return (
+                <li>
+                  <a
+                    href={href}
+                    class='flex items-center gap-1 text-2xl uppercase text-white transition-all hover:text-neutral-100'
+                  >
+                    {title}
+                  </a>
+                </li>
+              )
+            })
+          }
+        </div>
+      </ul>
+      <!-- Mobile Navigation -->
+      <div class='w-full'>
+        <ul class='flex w-full justify-between text-white md:hidden'>
+          <li>
+            <a href='/' class='flex items-center gap-1 transition-all hover:text-neutral-100'>
+              <LogoIcon class='text-white' />
+            </a>
+          </li>
+          <li class='self-end'>
+            <Navbar client:only />
+            <!-- <Hamburger size={20} /> -->
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Title -->
+    <div class='flex flex-1 items-end justify-start pb-10 text-white md:items-center md:justify-center md:text-center'>
+      <TitleComponent title={title} />
+    </div>
+    <DownArrow id='carrusel' aria-label='Scroll Down' />
+  </div>
+</header>

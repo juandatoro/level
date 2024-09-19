@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/Layout.astro'
+import MarkdownComponent from '@src/components/MarkdownComponent'
+import Typography from '@src/components/Typography.astro'
+import { Pages } from '@src/infrastructure/domain/pagesEnums'
+import { getDataFromService } from '@src/infrastructure/http/fetchHelper'
+import CarruselSection from '@src/sections/DescriptionSection.astro'
+import HighlightedProjects from '@src/sections/HighlightedProjects.astro'
+import { Picture } from 'astro:assets'
+
+const { heading, featured, banner } = await getDataFromService(Astro.request, Pages.ABOUT)
+---
+
+<Layout title='About - Level Group' heading={heading}>
+  <CarruselSection id='carrusel' description={featured.description} gallery={featured.gallery} />
+  <MarkdownComponent description={banner.description} />
+  <Picture
+    src={banner.gallery[0]}
+    formats={['avif', 'webp']}
+    alt='Banner Image'
+    class='w-full rounded-sm shadow-md'
+    decoding='async'
+    loading='lazy'
+    width={1920}
+    height={1080}
+  />
+  <HighlightedProjects title="What we do" lengthGalerry={3} imageTitles={['Architecture', 'Interior Design', 'Urban Design']}/>
+</Layout>

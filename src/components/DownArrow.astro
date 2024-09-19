@@ -1,0 +1,52 @@
+---
+type Props = {
+  'aria-label': string,
+  id: string
+}
+
+const { 'aria-label': ariaLabel, id } = Astro.props;
+const buttonId = `button-${id}`;
+---
+
+<!-- Down Arrow Button -->
+<div class='text-center md:hidden visible full flex justify-center'>
+  <astro-scroll data-target-id={id}>
+    <button aria-label={ariaLabel} class='text-white down-arrow'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='h-6 w-6 animate-bounce'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
+      >
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path>
+      </svg>
+    </button>
+  </astro-scroll>
+</div>
+
+<script is:inline>
+  class AstroScroll extends HTMLElement {
+    constructor() {
+      super();
+      const targetId = this.dataset.targetId;
+      const button = this.querySelector('button');
+      button.addEventListener('click', () => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  }
+
+  customElements.define('astro-scroll', AstroScroll);
+</script>
+
+<style>
+  .down-arrow {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 24px;
+  }
+</style>
