@@ -4,7 +4,7 @@ import {
   getDocumentFromCollection,
   fetchDocumentsFromReferences,
   getDocumentsFromCollectionQuery,
-} from '../firebase'
+} from '../../firebase'
 
 enum levelGroup {
   PAGES = 'pages',
