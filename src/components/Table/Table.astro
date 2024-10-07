@@ -1,22 +1,48 @@
 ---
-import { organizeObject } from "@src/infrastructure/util/util"
-import BodyTable from "./BodyTable.astro"
-import HeaderTable from "./HeaderTable.astro"
+import BodyTable from './BodyTable.astro'
+import HeaderTable from './HeaderTable.astro'
 
 type Props = {
-    data: Record<string, unknown>[]
+  data: Record<string, unknown>[]
 }
-
 
 const { data } = Astro.props
 
+export const organizeObject = (data: any[]) => {
+  return data.reduce(
+    (acc, curr, idx) => {
+      acc.bodyData[idx] = []
+      console.log(acc, curr)
+      if (curr.year) {
+        acc.titles[0] = 'Year'
+        acc.bodyData[idx][0] = curr.year
+      }
+      if (curr.project_type) {
+        acc.titles[1] = 'Project Type'
+        acc.bodyData[idx][1] = curr.project_type
+      }
+      if (curr.site) {
+        acc.titles[2] = 'Site'
+        acc.bodyData[idx][2] = curr.site
+      }
+      if (curr.award) {
+        acc.titles[1] = 'Award'
+        acc.bodyData[idx][1] = curr.award
+      }
+      if (curr.description) {
+        acc.titles[2] = 'Description'
+        acc.bodyData[idx][2] = curr.description
+      }
+      return acc
+    },
+    { titles: [] as string[], bodyData: [] as string[] }
+  ) as { titles: string[]; bodyData: string[][] }
+}
 
-const organizeData = organizeObject(data)
-
+const { titles, bodyData } = organizeObject(data)
 ---
-    <table class='table-auto w-full min-w-full bg-transparent' >
-      <HeaderTable titles={Object.keys(data[0])} />
-      <BodyTable body={organizeData} />
-    </table>
 
-
+<table class='w-full min-w-full table-auto bg-transparent'>
+  <HeaderTable titles={titles} />
+  <BodyTable bodyData={bodyData} />
+</table>

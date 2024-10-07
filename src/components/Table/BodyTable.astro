@@ -1,23 +1,24 @@
-
 ---
 import { type HTMLTag, type Polymorphic } from 'astro/types'
 import Typography from '../Typography.astro'
 
 type Props = {
-  body: Record<string, unknown >[]
+  bodyData: string[][]
 }
 
-const { body, ...props } = Astro.props
+const { bodyData, ...props } = Astro.props
 ---
 
 {
-  body?.map((item: { [key: string]: any }) => (
+  bodyData?.map((item) => (
     <tr>
-      {
-        Object.keys(item).map((key: string) => (
-          <td class="py-6 pl-4 border-b-2 border-black text-left"><Typography as='p' variant='body'>{item[key]}</Typography></td>
-        ))
-      }
+      {item.map((key: string) => (
+        <td class='border-b-2 border-black py-6 pl-4 text-left'>
+          <Typography as='p' variant='body'>
+            {key}
+          </Typography>
+        </td>
+      ))}
     </tr>
   ))
 }
